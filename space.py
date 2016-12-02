@@ -17,3 +17,4 @@ class SpaceGameWindow(arcade.Window):
 if __name__ == '__main__':
     window = SpaceGameWindow(SCREEN_WIDTH, SCREEN_HEIGHT)
     arcade.run()
+
