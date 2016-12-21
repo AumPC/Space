@@ -30,13 +30,20 @@ class SpaceGameWindow(arcade.Window):
         self.ship_sprite = ModelSprite('images/ship.png',model=self.world.ship)
         self.gold_sprite = ModelSprite('images/gold.png',model=self.world.gold)
         
+        self.asteroid_sprites = []
+        for asteroid in self.world.asteroids:
+            self.asteroid_sprites.append(ModelSprite('images/ship.png',scale=0.5,model=asteroid))
+
+        
     def on_draw(self):
         arcade.start_render()
         self.gold_sprite.draw()
         self.ship_sprite.draw()
         arcade.draw_text(str(self.world.score),
-                         self.width - 30, self.height - 30,
+                         self.width - 60, self.height - 30,
                          arcade.color.WHITE, 20)
+        for sprite in self.asteroid_sprites:
+            sprite.draw()
  
     def animate(self, delta):
         self.world.animate(delta)
